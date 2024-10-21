@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P4-M08.5</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: left;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            // Mostrar todas las actividades
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            // Aplicar ajustes según el tiempo seleccionado
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-3-step-7').style.display = 'none';
+                document.getElementById('activity-3-step-8').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook-P4-M08.5</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+    <!-- Aquí comenzarán las actividades -->
+
+    
+    <!-- Actividad 0: Revisión de Misión -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('revision_mision')">
+        <div class="title">📚 Actividad 0: Revisión de Misión ⏰ Tiempo: No especificado</div>
+        <div class="subtitle">Verificar los materiales necesarios para la misión.</div>
+    </div>
+    <div id="revision_mision" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1:</strong> Proyectar Diapositiva 1 y verificar que estén disponibles los siguientes materiales: Magic Boards, BBC Micro, Cutebot, computadoras/tablets con MakeCode abierto.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 1: Saludo y Ritual Gnius Club -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual_gnius')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Preparar a los estudiantes para la clase con una bienvenida energética.</div>
+    </div>
+    <div id="saludo_ritual_gnius" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2: "Gnius Club".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Hola Genios! 🌟 Hoy tenemos una misión increíble. Vamos a aprender cómo programar un robot para moverse exactamente como queremos. ¿Listos para la aventura?"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3: "¿Cómo están hoy?" y escanear quiénes están listos para ser aliados en la clase.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de empezar, quiero saber cómo están. Si están listos, hagan la señal de ‘genios’ (mano arriba), y si no, pulgar hacia abajo. ¡Los genios listos seguro serán grandes programadores hoy!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4: "Gracias por asistir" y guiar a los estudiantes en el ritual.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Juntamos nuestras manos en agradecimiento por lo que vamos a aprender hoy. ¡Gracias por estar aquí, Genios!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5: "Objetivos de la Misión" y leer los objetivos en voz alta.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy tenemos dos objetivos principales: aprender a programar movimientos básicos en Cutebot y trabajar en equipo."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 2: Brain Vitamin -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('brain_vitamin')">
+        <div class="title">🧠 Actividad 2: Brain Vitamin ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Despertar el cerebro con movimientos cruzados.</div>
+    </div>
+    <div id="brain_vitamin" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6: "¡Despierta tu cerebro con movimientos cruzados!".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Vamos a hacer un ejercicio para despertar nuestro cerebro. Toca tu rodilla derecha con tu mano izquierda y luego haz lo contrario: mano derecha, rodilla izquierda. Esto ayuda a conectar los dos lados de tu cerebro. ¡Hagámoslo rápido!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 7 con la secuencia de movimientos cruzados.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Muy bien, genios! Ahora vamos a hacer la secuencia más rápido. Mano izquierda, rodilla derecha, mano derecha, rodilla izquierda. ¡Cada vez más rápido, hasta que sintamos que nuestro cerebro está totalmente activo!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1.5 minutos):</strong> Proyectar Diapositiva 8 para guiar la repetición rápida de la secuencia.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Vamos a acelerar aún más! Imaginen que somos robots y tenemos que movernos con máxima precisión. Mano, rodilla, mano, rodilla. ¡Más rápido, genios! ¡Estamos casi listos para programar!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 3: Introducción del Reto -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('introduccion_reto')">
+        <div class="title">🛠️ Actividad 3: Introducción del Reto ⏰ Tiempo: 36.5 minutos</div>
+        <div class="subtitle">Explicación del reto y trabajo en la misión.</div>
+    </div>
+    <div id="introduccion_reto" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 9: "Portada de los Retos". Explicar los tres niveles de reto a los estudiantes.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Bienvenidos, ingenieros de Gnius Express! Hoy trabajarán en la primera empresa mexicana de entregas autónomas. Cada equipo elegirá su misión. Tenemos tres niveles: Rookie, Master y Hacker. ¡Vamos a revisar cada nivel y elijan el que más les guste!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Guiar a los estudiantes para que reúnan los materiales necesarios para el reto.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de comenzar, asegúrense de tener todo lo necesario: Cutebot, BBC Micro y sus tablets con MakeCode abierto. ¡Recójanlos y prepárense para programar!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (3 minutos):</strong> Proyectar Diapositiva 10 "Recogiendo materiales" con un temporizador. Supervisar que todos los estudiantes tengan sus materiales listos.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Tienen 3 minutos para recoger sus materiales y prepararse para el reto. ¡Asegúrense de tener todo listo para que su Cutebot complete la misión!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 11 "Niveles de Reto". Explicar los diferentes niveles.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Tenemos tres niveles de reto: 
+                1. Rookie: Operación Mensajero Rápido. 
+                2. Master: Operación Rutas Inteligentes. 
+                3. Hacker: Operación Entrega Eficiente. ¡Elijan su nivel y prepárense para programar!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (20 minutos):</strong> Proyectar Diapositiva 12 "Challenge en proceso". Supervisar a los estudiantes mientras trabajan en el reto.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Es momento de poner manos a la obra. Tienen 20 minutos para programar sus Cutebots según el reto que eligieron. ¡Recuerden que el tiempo es clave, pero la precisión lo es aún más!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (5 minutos):</strong> Supervisar las pruebas de los equipos y ayudar con los ajustes según el nivel elegido.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Es hora de poner a prueba su programación. Veamos si su Cutebot puede realizar la entrega correctamente. Si algo no sale bien, hagan ajustes en el código y vuelvan a intentarlo."</td>
+            </tr>
+            <tr id="activity-3-step-7">
+                <td><strong>PASO 7 (4 minutos):</strong> Proyectar Diapositiva 13 "Reflexión del Reto" para guiar la discusión.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Gran trabajo, Genios! Reflexionemos sobre lo que aprendimos. ¿Qué ajustes fueron clave para que su Cutebot realizara la entrega correctamente?"</td>
+            </tr>
+            <tr id="activity-3-step-8">
+                <td><strong>PASO 8 (2 minutos):</strong> Proyectar Diapositiva 14 "Revisión de Objetivos". Revisar los objetivos alcanzados.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¿Lograron que el Cutebot completara la entrega de manera precisa? ¿Qué partes del reto cumplieron y en qué aspectos podrían mejorar en futuras misiones?"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4: Formación de Equipos -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('formacion_equipos')">
+        <div class="title">🤝 Actividad 4: Formación de Equipos ⏰ Tiempo: 6.5 minutos</div>
+        <div class="subtitle">Trabajar en equipo para coordinar el funcionamiento de los robots.</div>
+    </div>
+    <div id="formacion_equipos" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Explicar la importancia de trabajar en equipo y coordinar el funcionamiento de los robots.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Genios, bienvenidos a la fábrica de exploradores autónomos de Gnius! Hoy, cada equipo será responsable de coordinar los movimientos de un rover explorador en Marte. Usaremos Team CANVAS para organizar los roles y definir cómo lograremos que el rover cumpla su misión."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Guiar a los estudiantes en la formación de equipos y la asignación de roles.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Es momento de organizarnos como ingenieros. Cada equipo necesita un Ingeniero Jefe, un Programador y un Control de Calidad. Usen Team CANVAS para asignar estos roles y organizarse."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (2 minutos):</strong> Explicación del Team CANVAS y cómo organizar el equipo.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Cada equipo debe organizarse como un grupo de ingenieros en una fábrica. Tienen 1 minuto para formar equipos y asignar roles: Ingeniero Jefe, Desarrollador de Software y Control de Calidad."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (2 minutos):</strong> Reflexión en equipo sobre cómo trabajar mejor juntos utilizando Team CANVAS.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Usen Team CANVAS para definir qué hará cada persona en el equipo, qué valores los guiarán, y cuál será el objetivo principal. La coordinación es clave para que el rover cumpla su misión."</td>
+            </tr>
+            <tr id="activity-4-step-6">
+                <td><strong>PASO 5 (1 minuto):</strong> Compartir reflexiones sobre cómo mejorar la colaboración.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Compartan cómo creen que pueden mejorar su colaboración para que el rover cumpla su misión en Marte. El trabajo en equipo es lo que hace posibles las grandes misiones."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 5: Revisión de Objetivos y Reflexión Final -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('revision_objetivos')">
+        <div class="title">🎯 Actividad 5: Revisión de Objetivos y Reflexión Final ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Reflexionar sobre los objetivos alcanzados y la colaboración.</div>
+    </div>
+    <div id="revision_objetivos" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 18: "Revisión de Objetivos". Repasar los objetivos de la misión.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Genios, excelente trabajo hoy! Ahora vamos a revisar juntos los objetivos de la misión. ¿Logramos que nuestro Cutebot completara la misión con éxito? ¿Programamos correctamente los movimientos? ¿Colaboramos de manera eficiente en equipo? Reflexionemos juntos sobre lo que hemos aprendido hoy y cómo podemos mejorar para futuras misiones."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Guiar la reflexión sobre el esfuerzo colectivo.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy no solo logramos que el Cutebot completara su misión, sino que además demostramos que trabajar en equipo es clave para el éxito. ¡Felicidades, Genios! ¡Han demostrado ser grandes ingenieros y colaboradores!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 19: "Reflexión Final". Pedir a los estudiantes que piensen en lo que salió bien y en lo que se podría mejorar.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de terminar, quiero que reflexionemos sobre lo que hemos aprendido hoy. Piensen en una cosa que hicimos bien y en algo que podríamos mejorar la próxima vez. ¿Qué creen que fue clave para nuestro éxito y qué podríamos ajustar en la siguiente misión? ¡Recuerden que siempre hay espacio para mejorar!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 20: "Honor de Dojo". Guiar a los estudiantes para que recojan y organicen los materiales usados durante la clase.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, como parte del Honor de Dojo, vamos a dejar nuestro espacio de trabajo limpio y organizado. Un buen ingeniero siempre respeta su área de trabajo y deja todo en orden para la siguiente misión. ¡Gracias por su esfuerzo, Genios!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div> <!-- Cierre del container -->
+
+    <!-- Scripts adicionales si es necesario -->
+    <script>
+        // Agregar scripts adicionales aquí si es necesario
+    </script>
+
+</body>
+</html>
